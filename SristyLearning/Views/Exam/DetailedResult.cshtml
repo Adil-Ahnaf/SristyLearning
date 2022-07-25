@@ -1,0 +1,39 @@
+﻿@model DetailedResultViewModel
+
+<section class="mt-5">
+    <div class="bg-body border p-5">
+        <h3>Your Detailed Result</h3><hr />
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="table-success">
+                    <th scope="col">Question</th>
+                    <th scope="col">Submit Answer</th>
+                    <th scope="col">Right/Wrong</th>
+                    <th scope="col">Correct Answer</th>
+                    <th scope="col">Get Mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.AllDetails.Count; i++)
+                {
+                <tr>
+                    <td>@Model.AllDetails[i].Question</td>
+                    <td>@Model.AllDetails[i].SubmitAnswer</td>
+                    @if(@Model.AllDetails[i].Right_Wrong == "Right"){
+                        <td class="text-success">@Model.AllDetails[i].Right_Wrong</td>
+                    }else{
+                        <td class="text-danger">@Model.AllDetails[i].Right_Wrong</td>
+                    }
+                    <td>@Model.AllDetails[i].CorrectAnswer</td>
+                    <td>@Model.AllDetails[i].GetMark</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+

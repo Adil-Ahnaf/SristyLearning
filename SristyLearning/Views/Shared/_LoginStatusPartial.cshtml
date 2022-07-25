@@ -1,0 +1,23 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <li><a class="getstarted scrollto" asp-controller="Account" asp-action="Logout">LogOut</a></li>
+    <h6 class="nav-link scrollto mt-2">Hi! @User.Identity.Name</h6>
+    @*<div style="float:left; padding-top:18px">
+            <p class="text-primary font-weight-bold">@string.Format("Welcome {0}", @User.Identity.Name) </p>
+        </div>
+        <div style="float:left; padding-top:10px">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Index">Profile</a>
+        </div>
+        <div style="float:left; padding-top:10px">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="ChangePassword">Account</a>
+        </div>
+        <div style="float:left; padding-top:10px">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Sing Out</a>
+        </div>*@
+
+}
+else
+{
+    <li><a class="getstarted scrollto" asp-controller="Account" asp-action="Login">Login</a></li>
+    <li><a class="getstarted scrollto" asp-controller="Account" asp-action="Register">Register</a></li>
+}

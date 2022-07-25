@@ -1,0 +1,55 @@
+﻿@model ExamListViewModel
+
+<section class="mt-5">
+    <div class="bg-body border p-5">
+        <h3>All Exam List</h3><hr />
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="table-success">
+                    <th scope="col">Id</th>
+                    <th scope="col">Exam Title</th>
+                    <th scope="col">Total Question</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Pass Mark(%)</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.AllExam.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.AllExam[i].Id</td>
+                        <td>@Model.AllExam[i].Title</td>
+                        <td>@Model.AllExam[i].TotalQuestion</td>
+                        <td>@Model.AllExam[i].Duration</td>
+                        <td>@Model.AllExam[i].PassMarkPercent</td>
+                        <td>
+                            @if (Model.AllExam[i].IsActive == true)
+                            {
+                                <a class="btn btn-sm btn-success" style="width:70px"   asp-controller="Administrator" 
+                                                                    asp-action="UpdateExamStatus" 
+                                                                    asp-route-activeStatus="@Model.AllExam[i].IsActive" 
+                                                                    asp-route-examId="@Model.AllExam[i].Id">Active</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-sm btn-danger" style="width:70px"   asp-controller="Administrator" 
+                                                                    asp-action="UpdateExamStatus"
+                                                                    asp-route-activeStatus="@Model.AllExam[i].IsActive" 
+                                                                    asp-route-examId="@Model.AllExam[i].Id">InActive</a>
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+
